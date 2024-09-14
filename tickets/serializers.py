@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Ticket, PaymentMethod
+from .models import Ticket, PaymentMethod, CustomDonation
 
 class TicketSerializer(serializers.ModelSerializer):
     class Meta:
@@ -10,3 +10,9 @@ class PaymentMethodSerializer(serializers.ModelSerializer):
     class Meta:
         model = PaymentMethod
         fields = ['name', 'account', 'description']
+
+
+class CustomDonationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CustomDonation
+        fields = ['email', 'phone', 'screenshot', 'amount']
