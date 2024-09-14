@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Ticket, PaymentMethod
+from .models import Ticket, PaymentMethod, CustomDonation
 
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
@@ -24,6 +24,30 @@ class TicketAdmin(admin.ModelAdmin):
 
     # Ordering by email
     ordering = ('email',)
+
+
+@admin.register(CustomDonation)
+class CustomDonationAdmin(admin.ModelAdmin):
+
+    # Fields to display in the list view
+    list_display = ('email', 'phone', 'amount', 'screenshot')
+    
+    # Add a search box for specific fields
+    search_fields = ('email', 'phone', 'amount')
+    
+    # Fieldsets to group fields in the detail view
+    fieldsets = (
+        ('Contact Information', {
+            'fields': ('email', 'phone')
+        }),
+        ('Donation Details', {
+            'fields': ('amount', 'screenshot')
+        }),
+    )
+
+    # Ordering by email
+    ordering = ('email',)
+
 
 @admin.register(PaymentMethod)
 class PaymentMethodAdmin(admin.ModelAdmin):
