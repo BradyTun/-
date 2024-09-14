@@ -10,5 +10,5 @@ router.register(r'donate', CustomDonationViewSet, basename='custom-donation')
 router.register(r'payment-methods', PaymentMethodQueryViewSet, basename='paymentmethod-query')
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('', include(router.urls)),
 ]
