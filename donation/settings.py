@@ -33,7 +33,7 @@ DEBUG = True if os.getenv("ENVIRONMENT") == "development" else False
 
 ALLOWED_HOSTS = ["*"]
 CORS_ALLOW_ALL_ORIGINS = True
-CSRF_TRUSTED_ORIGINS = ["https://crypto-wallet-django.up.railway.app", "http://localhost"]
+CSRF_TRUSTED_ORIGINS = ["https://mate-phwae-yin-hlu.up.railway.app", "http://localhost"]
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [

@@ -7,13 +7,13 @@ from rest_framework.parsers import MultiPartParser, FormParser
 
 
 # Custom viewset to allow only ticket submission (POST) but no retrieval
-class TicketSubmissionViewSet(mixins.CreateModelMixin, viewsets.GenericViewSet):
+class TicketSubmissionViewSet(mixins.CreateModelMixin, mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
     parser_classes = [MultiPartParser, FormParser]
 
     def get_permissions(self):
-        if self.action == 'create':  # For POST requests (ticket submission)
+        if self.action == 'create' or self.action == 'list':  # For POST requests (ticket submission)
             return [AllowAny()]  # Allow unauthenticated users to submit tickets
         return [IsAuthenticatedOrReadOnly()]  # For other actions (if any), require authentication
 
