@@ -48,5 +48,5 @@ admin.site.site_header = "Django admin"
 admin.site.site_title = "Django admin"
 admin.site.index_title = "Welcome to Django admin panel"
 
-if settings.DEBUG or os.environ.get('MEDIA_SERVER')=='True':
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+# if settings.DEBUG or os.environ.get('MEDIA_SERVER')=='True':
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
