@@ -4,7 +4,7 @@ from .models import Ticket, PaymentMethod, CustomDonation
 @admin.register(Ticket)
 class TicketAdmin(admin.ModelAdmin):
     # Fields to display in the list view
-    list_display = ('email', 'phone', 'ticket_type', 'screenshot', 'get_ticket_type_display')
+    list_display = ('email', 'name', 'phone', 'ticket_type', 'screenshot', 'get_ticket_type_display')
     
     # Add a search box for specific fields
     search_fields = ('email', 'phone', 'ticket_type')
@@ -15,7 +15,7 @@ class TicketAdmin(admin.ModelAdmin):
     # Fieldsets to group fields in the detail view
     fieldsets = (
         ('Contact Information', {
-            'fields': ('email', 'phone')
+            'fields': ('email', 'name', 'phone',)
         }),
         ('Ticket Details', {
             'fields': ('ticket_type', 'screenshot')
