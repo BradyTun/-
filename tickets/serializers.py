@@ -4,7 +4,7 @@ from .models import Ticket, PaymentMethod, CustomDonation
 class TicketSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ticket
-        fields = ['email', 'phone', 'screenshot', 'ticket_type']
+        fields = ['email', 'name', 'phone', 'screenshot', 'ticket_type']
 
 class PaymentMethodSerializer(serializers.ModelSerializer):
     class Meta:

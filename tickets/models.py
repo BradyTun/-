@@ -8,6 +8,7 @@ class Ticket(models.Model):
         ('4', 'IT Elite - 100,000 MMK')
     ]
     email = models.EmailField(null=False)
+    name = models.CharField(max_length=256, null=False, default='Default Name')
     phone = models.CharField(max_length=20)
     screenshot = models.ImageField(upload_to='payment_screenshots/')
     ticket_type = models.CharField(max_length=4, choices=TICKET_TYPES)
